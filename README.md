@@ -2,6 +2,10 @@
 
 ### `yarn start`
 
+Para instalar as dependências 
+
+### `yarn start`
+
 Roda o projeto em modo de desenvolvimento.
 Abra [http://localhost:3000](http://localhost:3000) para visualizar no navegador.
 
