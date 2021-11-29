@@ -6,10 +6,10 @@ import {
   Button,
   CardActions,
 } from "@material-ui/core";
-
+import AddBoxIcon from "@mui/icons-material/AddBox";
 type IProps = {
-  cardTitle: string;
-  cardContent: string;
+  cardTitle?: string;
+  cardContent?: string;
   handleClick?: () => any;
   isDisabled?: boolean;
 };
@@ -31,12 +31,16 @@ const Cards: React.FC<IProps> = ({
       </CardContent>
       <CardActions>
         <Button
+          sx={{ color: isDisabled ? "primary" : "#8510d8" }}
+          fullWidth
           disabled={isDisabled}
           onClick={handleClick}
           size='small'
-          color='primary'
+          endIcon={
+            <AddBoxIcon sx={{ color: isDisabled ? "primary" : "#8510d8" }} />
+          }
         >
-          Selecionar
+          Adicionar ao carrinho
         </Button>
       </CardActions>
     </Card>

@@ -8,14 +8,15 @@ import { IAllPlans } from "../interfaces/Plans";
 type Props = {
   item: IAllPlans;
   addToCart: (clickedItem: IAllPlans) => void;
-  removeFromCart: (id: number) => void;
+  removeFromCart: (value: string) => void;
 };
 
 const CartItem: React.FC<Props> = ({ item, addToCart, removeFromCart }) => (
   <Grid
     item
     sx={{
-      boxShadow: "1px 1px 5px #8510d8 ",
+      background: "#fff",
+      boxShadow: "1px 1px 1px 1px #8510d8",
       padding: 1,
       gap: 2,
       marginBottom: 2,
@@ -25,15 +26,16 @@ const CartItem: React.FC<Props> = ({ item, addToCart, removeFromCart }) => (
     {item?.type === "internet" && <p>Plano de internet</p>}
     {item?.type === "fix" && <p>Plano fixo de telefone</p>}
     {item?.type === "tv" && <p>Plano de TV</p>}
-    <h3>{item.value}</h3>
-    <p>Valor: ${item.price}</p>
+    <h3>{item?.value}</h3>
+    <p>Valor: ${item?.price}</p>
     <Button
-      size='small'
+      style={{ color: "#8510d8", border: "1px solid #8510d8" }}
+      fullWidth
       disableElevation
-      variant='contained'
-      onClick={() => removeFromCart(item.id)}
+      variant='outlined'
+      onClick={() => removeFromCart(item?.value)}
     >
-      -
+      Remover
     </Button>
   </Grid>
 );
