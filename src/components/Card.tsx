@@ -1,22 +1,17 @@
 import React from "react";
 import {
   CardContent,
-  Grid,
   Card,
-  Container,
-  CardHeader,
   Typography,
-  CardActionArea,
   Button,
   CardActions,
 } from "@material-ui/core";
-import { Box } from "@material-ui/system";
 
 type IProps = {
   cardTitle: string;
   cardContent: string;
   handleClick?: () => any;
-  isDisabled: boolean;
+  isDisabled?: boolean;
 };
 const Cards: React.FC<IProps> = ({
   cardTitle,

@@ -63,7 +63,7 @@ function App() {
           <Grid container sx={{ gap: 2 }}>
             {internetPlans?.map(item => (
               <Cards
-                isDisabled={disabled}
+                isDisabled={cartItems.some(e => e.type === "internet")}
                 handleClick={() => handleAddToCart(item)}
                 key={item?.id}
                 cardTitle={item?.value}
@@ -82,7 +82,7 @@ function App() {
           <Grid container sx={{ gap: 2 }}>
             {fixPlans?.map(item => (
               <Cards
-                isDisabled={disabled}
+                isDisabled={cartItems.length === 0}
                 handleClick={() => handleAddToCart(item)}
                 key={item?.id}
                 cardTitle={`${item?.value}`}
@@ -101,7 +101,7 @@ function App() {
           <Grid container sx={{ gap: 2 }}>
             {tvPlans?.map(item => (
               <Cards
-                isDisabled={disabled}
+                isDisabled={cartItems.length === 0}
                 handleClick={() => handleAddToCart(item)}
                 key={item?.id}
                 cardTitle={`${item?.value} `}

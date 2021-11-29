@@ -22,6 +22,9 @@ const CartItem: React.FC<Props> = ({ item, addToCart, removeFromCart }) => (
       borderRadius: 1,
     }}
   >
+    {item?.type === "internet" && <p>Plano de internet</p>}
+    {item?.type === "fix" && <p>Plano fixo de telefone</p>}
+    {item?.type === "tv" && <p>Plano de TV</p>}
     <h3>{item.value}</h3>
     <p>Valor: ${item.price}</p>
     <Button
