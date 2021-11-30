@@ -14,6 +14,7 @@ import Cards from "./components/Card";
 import ShopCart from "./components/ShopCart";
 
 import plansService from "./services/api";
+import { Alert } from "@mui/material";
 
 const App: React.FC = () => {
   const [internetPlans, setInternetPlans] = useState<IAllPlans[]>();
@@ -21,9 +22,10 @@ const App: React.FC = () => {
   const [tvPlans, setTvPlans] = useState<IAllPlans[]>();
   const [cartItems, setCartItems] = useState([] as IAllPlans[]);
   const [loading, setLoading] = useState(false);
-
+  const [error, setError] = useState(false);
   const fetchData = useCallback(async () => {
     try {
+      setError(false);
       setLoading(true);
       const tv = await plansService.get("tvPlans");
       const fix = await plansService.get("fixPlans");
@@ -33,6 +35,7 @@ const App: React.FC = () => {
       setInternetPlans(internet);
     } catch (err) {
       console.log(err);
+      setError(true);
     } finally {
       setLoading(false);
     }
@@ -89,6 +92,11 @@ const App: React.FC = () => {
     >
       <Box sx={{ marginBottom: 2 }}>
         <div>
+          {error && (
+            <Alert severity='error'>
+              Houve um erro ao recuperar os planos, tente novamente mais tarde
+            </Alert>
+          )}
           <Typography variant='h5' color='#8510d8'>
             Internet
           </Typography>

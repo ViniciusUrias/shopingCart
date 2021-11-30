@@ -1,9 +1,6 @@
 import { Grid } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
-import { Box } from "@material-ui/system";
-// Types
 import { IAllPlans } from "../interfaces/Plans";
-// Styles
 
 type Props = {
   item: IAllPlans;
